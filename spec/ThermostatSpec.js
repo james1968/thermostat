@@ -103,9 +103,10 @@ describe('Thermostat', function() {
             expect(thermostat.energyUse()).toEqual('medium-usage')
         });
 
-        it('shows high-usage at =< 25 degrees', function() {
+        it('shows high-usage at >= 25 degrees', function() {
+            thermostat.powerSavingOff();
             var i;
-            for (i = 1; i < (thermostat._POWER_SAVING_ON_MAX_TEMP - thermostat._DEFAULT_TEMPERATURE + 2); i++) {
+            for (i = 1; i < 7; i++) {
                 thermostat.up();
             }
             expect(thermostat.energyUse()).toEqual('high-usage')

@@ -43,4 +43,14 @@ Thermostat.prototype.reset = function() {
     this._current_temperature = this._DEFAULT_TEMPERATURE;
 };
 
+Thermostat.prototype.energyUse = function() {
+    if (this._current_temperature > 24 )  {
+        return 'high-usage';
+    } else if (this._current_temperature > 18 ) {
+        return 'medium-usage';
+    } else {
+        return 'low-usage';
+    }
+};
+
 // module.exports = Thermostat;
