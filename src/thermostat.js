@@ -31,7 +31,7 @@ Thermostat.prototype.isMinimumTemperature = function() {
 };
 
 Thermostat.prototype.isPowerSavingModeOn = function() {
-  return this.powerSavingMode === true;
+  return this.powerSavingMode;
 };
 
 Thermostat.prototype.switchPowerSavingModeOff = function() {
@@ -43,9 +43,9 @@ Thermostat.prototype.switchPowerSavingModeOn = function() {
 }
 
 Thermostat.prototype.isMaximumTemperature = function() {
-  if (this.isPowerSavingModeOn() === false) {
+  if (this.isPowerSavingModeOn() === true) {
     return this.temperature === this.MAX_LIMIT_PSM_OFF;
   } else {
-    return this.temperature === this.MAX_LIMIT_PSM_OFF;
+    return this.temperature === this.MAX_LIMIT_PSM_ON;
   };
 };
