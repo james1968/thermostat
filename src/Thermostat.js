@@ -33,12 +33,14 @@ Thermostat.prototype.powerSavingOff = function() {
 };
 
 Thermostat.prototype.powerSavingOn = function() {
-    if (this._current_temperature >  this._POWER_SAVING_ON_MAX_TEMP) {
+    if (this._current_temperature > this._POWER_SAVING_ON_MAX_TEMP) {
         this._current_temperature = this._POWER_SAVING_ON_MAX_TEMP;
     }
     this._powerSaving = true;
 };
 
-
+Thermostat.prototype.reset = function() {
+    this._current_temperature = this._DEFAULT_TEMPERATURE;
+};
 
 // module.exports = Thermostat;

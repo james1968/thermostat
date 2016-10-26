@@ -48,7 +48,7 @@ describe('Thermostat', function() {
 
         it('if current temp is greater than power saving max temp, thermostat lowers to power saving max temp when power saving switched on', function() {
             var i;
-            for (i = 1; i < (thermostat._POWER_SAVING_ON_MAX_TEMP - thermostat._DEFAULT_TEMPERATURE + 2) ; i++) {
+            for (i = 1; i < (thermostat._POWER_SAVING_ON_MAX_TEMP - thermostat._DEFAULT_TEMPERATURE + 2); i++) {
                 thermostat.up();
             }
             thermostat.powerSavingOn();
@@ -77,11 +77,41 @@ describe('Thermostat', function() {
             expect(function() { thermostat.up(); }).toThrowError('Power saving on - maximum temperature reached: 25 degrees')
         });
 
-        it('can be reset', function(){
+
+
+    });
+
+    it('can be reset', function() {
+        thermostat.up();
+        thermostat.reset();
+        expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMPERATURE)
+    });
+
+
+    describe('checking current energy use', function() {
+
+        it('shows low-usage at lesser than 18 degrees', function() {
+            var i;
+            for (i = 1; i < 4; i++) {
+                thermostat.down();
+            }
+            expect(thermostat.energyUse()).toEqual('low-usage')
+        });
+
+        it('shows medium-usage at lesser than 25 degrees', function() {
             thermostat.up();
-            thermostat.reset();
-            expect(thermostat.temperature).toEqual(thermostat._DEFAULT_TEMPERATURE)
+            expect(thermostat.energyUse()).toEqual('medium-usage')
+        });
+
+        it('shows high-usage at =< 25 degrees', function() {
+            var i;
+            for (i = 1; i < (thermostat._POWER_SAVING_ON_MAX_TEMP - thermostat._DEFAULT_TEMPERATURE + 2); i++) {
+                thermostat.up();
+            }
+            expect(thermostat.energyUse()).toEqual('high-usage')
         });
 
     });
+
+
 });
