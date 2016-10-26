@@ -78,7 +78,7 @@ describe('Thermostat',function() {
         for (var i = 0; i < 3; i++) {
           thermostat.decreaseTemperature();
         }
-        expect(thermostat.displayColour()).toEqual('green');
+        expect(thermostat.energyUsage()).toEqual('low-usage');
       });
     });
     describe('when the temperature is between 18 and 25 degrees', function() {
@@ -86,15 +86,15 @@ describe('Thermostat',function() {
         for (var i = 0; i < 2; i++) {
           thermostat.decreaseTemperature();
         }
-        expect(thermostat.displayColour()).toEqual('yellow');
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
       });
     });
     describe('when the temperature is between 18 and 25 degrees', function() {
       it('is considered medium usage', function() {
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 4; i++) {
           thermostat.increaseTemperature();
         }
-        expect(thermostat.displayColour()).toEqual('yellow');
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
       });
     });
     describe('when the temperature is above 25 degrees', function() {
@@ -102,7 +102,7 @@ describe('Thermostat',function() {
         for (var i = 0; i < 7; i++) {
           thermostat.increaseTemperature();
         }
-        expect(thermostat.displayColour()).toEqual('red');
+        expect(thermostat.energyUsage()).toEqual('high-usage');
       });
     });
   });
