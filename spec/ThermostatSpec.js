@@ -77,5 +77,11 @@ describe('Thermostat', function() {
             expect(function() { thermostat.up(); }).toThrowError('Power saving on - maximum temperature reached: 25 degrees')
         });
 
+        it('can be reset', function(){
+            thermostat.up();
+            thermostat.reset();
+            expect(thermostat.temperature).toEqual(thermostat._DEFAULT_TEMPERATURE)
+        });
+
     });
 });
