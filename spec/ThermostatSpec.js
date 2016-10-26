@@ -10,12 +10,12 @@ describe('Thermostat', function() {
 
     describe('defaults', function() {
         it('defaults to 20 degrees', function() {
-        expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMPERATURE);
-       });
+            expect(thermostat.temperature()).toEqual(thermostat._DEFAULT_TEMPERATURE);
+        });
 
-       it('defaults to normal mode', function() {
-        expect(thermostat.powerSaving()).toEqual(false);
-       });
+        it('defaults to power saving mode to be true aka on', function() {
+            expect(thermostat._powerSaving).toEqual(true);
+        });
     });
 
     it('increase temperature with up function', function() {
@@ -37,15 +37,36 @@ describe('Thermostat', function() {
     });
 
     describe('Power saving mode', function() {
-        
-        it('can be switched on', function() {
-            thermostat.powerSavingModeOn();
-            expect(thermostat._powerSaving()).toEqual(true);
+
+        beforeEach(function() {
+            thermostat.powerSavingOff();
         });
-        
+
         it('can be switched off', function() {
-            thermostat.powerSavingModeOff();
-            expect(thermostat._powerSaving()).toEqual(false);
+            expect(thermostat._powerSaving).toEqual(false);
         });
+
+        it('maximum temperature is 32 degrees at power saving mode off', function() {
+            var i;
+            for (i = 1; i < 12; i++) {
+                thermostat.up();
+            }
+            expect(function() { thermostat.up(); }).toThrowError('Power saving off - maximum temperature reached: 32 degrees')
+        });
+
+        it('can be switched on', function() {
+            thermostat.powerSavingOn();
+            expect(thermostat._powerSaving).toEqual(true);
+        });
+
+        it('maximum temperature is 25 degrees at power saving mode on', function() {
+            thermostat.powerSavingOn();
+            var i;
+            for (i = 1; i < 6; i++) {
+                thermostat.up();
+            }
+            expect(function() { thermostat.up(); }).toThrowError('Power saving on - maximum temperature reached: 25 degrees')
+        });
+
     });
 });
