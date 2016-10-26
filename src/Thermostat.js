@@ -9,4 +9,13 @@ Thermostat.prototype.temperature = function() {
     return this._current_temperature;
 };
 
+Thermostat.prototype.up = function() {
+    return this._current_temperature = this._current_temperature + 1;
+};
+
+Thermostat.prototype.down = function() {
+    return this._current_temperature = this._current_temperature - 1;
+};
+
+
 // module.exports = Thermostat;
