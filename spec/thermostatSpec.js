@@ -70,4 +70,40 @@ describe('Thermostat',function() {
       expect(thermostat.getCurrentTemperature()).toEqual(32);
     });
   });
+
+
+  describe('displaying usage levels', function() {
+    describe('when the temperature is below 18 degrees', function() {
+      it('it is considered low-usage', function() {
+        for (var i = 0; i < 3; i++) {
+          thermostat.decreaseTemperature();
+        }
+        expect(thermostat.displayColour()).toEqual('green');
+      });
+    });
+    describe('when the temperature is between 18 and 25 degrees', function() {
+      it('is considered medium usage', function() {
+        for (var i = 0; i < 2; i++) {
+          thermostat.decreaseTemperature();
+        }
+        expect(thermostat.displayColour()).toEqual('yellow');
+      });
+    });
+    describe('when the temperature is between 18 and 25 degrees', function() {
+      it('is considered medium usage', function() {
+        for (var i = 0; i < 5; i++) {
+          thermostat.increaseTemperature();
+        }
+        expect(thermostat.displayColour()).toEqual('yellow');
+      });
+    });
+    describe('when the temperature is above 25 degrees', function() {
+      it('is considered high usage', function() {
+        for (var i = 0; i < 7; i++) {
+          thermostat.increaseTemperature();
+        }
+        expect(thermostat.displayColour()).toEqual('red');
+      });
+    });
+  });
 });
