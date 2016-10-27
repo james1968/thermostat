@@ -8,10 +8,15 @@ $(document).ready(function() {
     }
 
     $('#temp-up').click(function() {
+        if ((thermostat.temperature() > 24) && (thermostat._powerSaving == true)) {
+          alert("Power saving on - maximum temperature reached: 25 degrees")
+        }
+        else if ((thermostat.temperature() > 31) && (thermostat._powerSaving == false)) {
+          alert("Power saving off - maximum temperature reached: 32 degrees")
+        }
         thermostat.up();
         updateTemperature();
     });
-
 
     $('#temp-down').click(function() {
         thermostat.down();
@@ -34,5 +39,7 @@ $(document).ready(function() {
         thermostat.reset();
         updateTemperature();
     });
+
+
 
 })
