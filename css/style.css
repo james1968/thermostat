@@ -1,8 +1,13 @@
 
-body {
-    background-image: url("../img/glyphicons-halflings-white.png");
-
-  }
+#backgroundImg {
+  background-image: url("../img/thermBgImg");
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  opacity: 0.1;
+}
 
 .low-usage {
   color: green;
