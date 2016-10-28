@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <link rel="stylesheet" href="css/style.css">
-    <title>Thermostat</title>
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Thermostat</title>
+</div>
 </head>
-
 <body>
+  <div class="head">
     <section>
-        <h1 id="temperature"></h1>
-        <p>
-            <button id="temp-up"> + </button>
-            <button id="temp-down"> - </button>
-            <button id="psm-on"> PSM On </button>
-            <button id="psm-off"> PSM Off </button> Power Saving Status <span id="power-saving-status"> on </span>
-            <button id="reset"> Reset </button>
-        </p>
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src='js/Thermostat.js'></script>
-        <script src='js/interface.js'></script>
+      <h1>Current temperature: <span id="temperature">20</span></h1>
+      <form id="select-city">
+        <input id="current-city" type="text" placeholder="Enter a city"></input>
+        <input type="submit"></input>
+      </form>
     </section>
-</body>
+  </div>
+  <div class="body">
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        <button id="temp-up"> + </button>
+        <button id="temp-down"> - </button>
+        <button id="psm-on"> PSM On </button>
+        <button id="psm-off"> PSM Off </button> Power Saving Status <span id="power-saving-status"> on </span>
+        <button id="reset"> Reset </button>
+      </p>
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src='js/Thermostat.js'></script>
+      <script src='js/interface.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="css/bootstrap.min.js"></script>
 
+    </section>
+  </div>
+  <div class="after-body">
+    <section>
+      <h2> Copyright JB!</h2>
+    </section>
+  </div>
+</body>
 </html>
