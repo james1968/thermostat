@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-  <title>Thermostat</title>
-</div>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-  <div class="head">
+  <div class="jumbotron text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Column 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      </div>
+      <div class="col-sm-4">
+        <h3>Column 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      </div>
+      <div class="col-sm-4">
+        <h3>Column 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+      </div>
+    </div>
+  </div>
+
+<div class="jumbotron text-center">
+  <div class="header">
+
     <section>
       <h1>Current temperature: <span id="temperature">20</span></h1>
       <form id="select-city">
@@ -20,7 +44,7 @@
       </form>
     </section>
   </div>
-  <div class="body">
+  <div class="col-sm-4">
     <section>
       <h1 id="temperature"></h1>
       <p>
@@ -33,16 +57,13 @@
       <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
       <script src='js/Thermostat.js'></script>
       <script src='js/interface.js'></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="css/bootstrap.min.js"></script>
-
     </section>
   </div>
-  <div class="after-body">
+  <div class="col-sm-4">
     <section>
       <h2> Copyright JB!</h2>
     </section>
   </div>
+</div>
 </body>
 </html>
