@@ -2,6 +2,24 @@ $(document).ready(function() {
   var thermostat = new Thermostat();
   $('#temperature').text(thermostat.temperature());
 
+  $("#image1").click(function(){
+    $("#image1").fadeOut(3000);
+  });
+  $("#current-city").mouseover(function(){
+    $("#image1").fadeIn(3000);
+  });
+  $("#temp-up").click(function(){
+    var fontSize = parseInt($("#temperature").css("font-size"));
+    fontSize = fontSize+10+"px";
+    $('#temperature').css({'font-size':fontSize});
+  })
+  $("#temp-down").click(function(){
+    var fontSize = parseInt($("#temperature").css("font-size"));
+    fontSize = fontSize-10+"px";
+    $('#temperature').css({'font-size':fontSize});
+  })
+
+
   $('#select-city').submit(function(event) {
     event.preventDefault();
     var city = $('#current-city').val();
