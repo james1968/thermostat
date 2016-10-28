@@ -1,7 +1,8 @@
-.container {
-  background-image: url("img/glyphicons-halflings-white.png");
 
-}
+body {
+    background-image: url("../img/glyphicons-halflings-white.png");
+
+  }
 
 .low-usage {
   color: green;
